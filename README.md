@@ -1,11 +1,12 @@
 2014.05.14--linux-vim
 =====================
 
+参考[Linux Vim文本编辑简明功略](http://www.php100.com/html/webkaifa/Linux/2012/1223/11830.html)
+
 第一级 – 存活
 -------------
-
 安装 vim
-
+ 
 启动 vim
 
 什么也别干！请先阅读
@@ -16,6 +17,7 @@
 
 启 动Vim后，vim 在 Normal 模式下。
     
+
 
 让我们进入 Insert 模式，请按下键i。
 
@@ -110,8 +112,69 @@ N<command> → 重复某个命令N次
 
 下面是一个示例，找开一个文件你可以试试下面的命令：
 
-    100idesu [ESC] → 会写下 “desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu       desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu       desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu       desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu       desu desu desu desu desu desu desu desu desu desu desu desu desu “
+    100idesu [ESC] → 会写下 “desu desu desu desu desu desu desu desu desu desu desu desu desu desu
+    desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu
+    desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu
+    desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu 
+    desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu desu
+    desu desu desu desu desu desu desu desu desu desu ”
 
 . → 重复上一个命令—— 100 “desu “.
 
 输入3. → 重复 3 次 “desu” (注意：不是 300，你看，VIM多聪明啊).
+
+###更强###
+你要让你的光标移动更有效率，你一定要了解下面的这些命令，千万别跳过。
+
+NG → 到第 N 行 （陈皓注：注意命令中的G是大写的，另我一般使用 : N 到第N行，如 :137 到第137行）
+
+gg → 到第一行。（陈皓注：相当于1G，或 :1）
+
+G → 到最后一行。
+
+按单词移动：
+
+w → 到下一个单词的开头。
+
+e → 到下一个单词的结尾。
+
+> 如果你认为单词是由默认方式，那么就用小写的e和w。默认上来说，一个单词由字母，数字和下划线组成
+
+> 如果你认为单词是由blank字符分隔符，那么你需要使用大写的E和W。
+
+
+下面，让我来说说最强的光标移动：
+
+% : 匹配括号移动，包括 (, {, [. （陈皓注：你需要把光标先移到括号上）
+
+其中* 和 #:  匹配光标当前所在的单词，移动光标到下一个（或上一个）匹配单词（*是下一个，#是上一个）
+
+相信我，上面这三个命令对程序员来说是相当强大的。
+
+###更快###
+
+你一定要记住光标的移动，因为很多命令都可以和这些移动光标的命令连动。很多命令都可以如下来干：
+
+<start position><command><end position>
+
+例如 0y$ 命令意味着：
+
+0 → 先到行头
+
+y → 从这里开始拷贝
+
+$ → 拷贝到本行最后一个字符
+
+你可可以输入 ye，从当前位置拷贝到本单词的最后一个字符。
+
+你也可以输入 y2/foo 来拷贝2个 “foo” 之间的字符串。
+
+还有很多时间并不一定你就一定要按y才会拷贝，下面的命令也会被拷贝：
+
+d (删除 )
+
+v (可视化的选择)
+
+gU (变大写)
+
+gu (变小写)
